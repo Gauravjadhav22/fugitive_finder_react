@@ -12,19 +12,15 @@ A game where three cops try to capture a fugitive hiding in one of five cities. 
 1. Clone the repository.
 2. Install dependencies:
     ```bash
-    cd backend
-    npm install
-    cd ../frontend
+   
     npm install
     ```
 3. Start the backend server:
     ```bash
-    cd backend
     npm start
     ```
 4. Start the frontend server:
     ```bash
-    cd frontend
     npm start
     ```
 
@@ -39,8 +35,8 @@ A game where three cops try to capture a fugitive hiding in one of five cities. 
 
 ## Deployment
 - Frontend: [Netlify](https://www.netlify.com/)
-- Backend: [Heroku](https://www.heroku.com/)
-
+- Backend: [render](https://render.com/)
+  
 ## Bonus Points
 - Unit tests are included.
 - Responsive UI with a clean design.
