@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Fugitive Finder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+A game where three cops try to capture a fugitive hiding in one of five cities. Each cop selects a city and a vehicle to investigate. The system determines if the fugitive is captured.
 
-## Available Scripts
+## Technologies
+- Frontend: React
+- Backend: Node.js (Express.js)
+- Cloudinary for storing images
 
-In the project directory, you can run:
+## Installation
+1. Clone the repository.
+2. Install dependencies:
+    ```bash
+    cd backend
+    npm install
+    cd ../frontend
+    npm install
+    ```
+3. Start the backend server:
+    ```bash
+    cd backend
+    npm start
+    ```
+4. Start the frontend server:
+    ```bash
+    cd frontend
+    npm start
+    ```
 
-### `npm start`
+## Usage
+1. Open the frontend in a browser.
+2. Follow the prompts to select cities and vehicles for each cop.
+3. View the result to see if the fugitive was captured.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Assumptions
+- Each cop must select a unique city.
+- Vehicles must have enough range for a round trip.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
+- Frontend: [Netlify](https://www.netlify.com/)
+- Backend: [Heroku](https://www.heroku.com/)
 
-### `npm test`
+## Bonus Points
+- Unit tests are included.
+- Responsive UI with a clean design.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Build Steps
+1. Ensure Node.js and npm are installed.
+2. Follow the installation steps above.
+3. Deploy the backend and frontend to the respective platforms.
