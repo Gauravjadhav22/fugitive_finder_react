@@ -24,7 +24,7 @@ export const AppProvider = ({ children }) => {
                 setVehicles(vehiclesData?.data);
                 const selectionsData = await axios.get(`${BASE_URL}/selections`);
                 setSelections(selectionsData?.data)
-                checkResult()
+                // checkResult()
             } catch (error) {
                 toast.error(error?.response?.data?.error);
             }
