@@ -24,7 +24,8 @@ export const AppProvider = ({ children }) => {
                 setVehicles(vehiclesData?.data);
                 const selectionsData = await axios.get(`${BASE_URL}/selections`);
                 setSelections(selectionsData?.data)
-                // checkResult()
+                const respResult = await axios.get(`${BASE_URL}/result`);
+                setResult(respResult?.data);
             } catch (error) {
                 toast.error(error?.response?.data?.error);
             }
@@ -38,7 +39,7 @@ export const AppProvider = ({ children }) => {
             const resp = await axios.post(`${BASE_URL}/selections`, { cop, city, vehicle, img_url });
             if (resp?.status === 200) {
                 toast.success(`Cop ${cop} is on way to catch the fugitive`);
-                setSelections([...selections, { cop, city, vehicle }]);
+                setSelections([...selections, { cop, city, vehicle, image: img_url }]);
             } else {
                 toast.error(resp?.data?.error);
             }
@@ -48,7 +49,7 @@ export const AppProvider = ({ children }) => {
     };
 
     const checkResult = async () => {
-        if (!selections.length) {
+        if (!selections.length && !result?.success) {
             toast.error('Please add at least one cop');
             return;
         }
