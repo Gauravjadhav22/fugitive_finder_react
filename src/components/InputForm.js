@@ -38,18 +38,14 @@ const InputForm = ({ vehicles, selections, cities, onSelect }) => {
     };
 
 
-
-
-    const handleImageChange = (e) => {
+    const handleImageChange = async (e) => {
         const file = e.target.files[0];
         if (file) {
             setImage(file);
             setImageUrl(URL.createObjectURL(file));
         }
-    };
-    const handleImageUpload = async () => {
         const formData = new FormData();
-        formData.append('file', image);
+        formData.append('file', file);
         formData.append('upload_preset', PRESET);
         try {
             setLoading(true)
@@ -65,10 +61,10 @@ const InputForm = ({ vehicles, selections, cities, onSelect }) => {
         }
         finally {
             setLoading(false)
-            setImageUrl(null)
-            setImage(null)
+         
         }
     };
+
     return (
         <div className="flex flex-col justify-center items-center shadow shadow-amber-600 p-12 gap-6 bg-white rounded-md">
             <img
@@ -77,7 +73,7 @@ const InputForm = ({ vehicles, selections, cities, onSelect }) => {
                 className="relative w-[80%] curp -mt-8"
 
             />
-           
+
             {loading && <div className="absolute w-full h-full backdrop-blur-sm flex justify-center items-center z-50"><img
                 src={loadingLogo}
                 alt="laoding..."
@@ -101,7 +97,7 @@ const InputForm = ({ vehicles, selections, cities, onSelect }) => {
                     ref={fileInputRef}
                     onChange={handleImageChange}
                 />
-                <button className="bg-amber-300 p-1 rounded-md mt-1" onClick={handleImageUpload}>Upload Image</button>
+                {/* <button className="bg-amber-300 p-1 rounded-md mt-1" onClick={handleImageUpload}>Upload Image</button> */}
 
 
             </div>

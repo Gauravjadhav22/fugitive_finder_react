@@ -7,7 +7,7 @@ const Landing = () => {
 
     const { vehicles, handleSelection, cities, selections, checkResult } = useAppData()
     return (
-        <div className="flex items-center justify-start flex-col gap-8 bg-[#0B1120] h-screen">
+        <div className="flex items-center justify-start flex-col gap-8 p-2">
             <ToastContainer />
             <h1 className=" flex items-start gap-2 bg-red-300 px-20 rounded-full -mb-2">
                 <span className="animate-pulse -mt-1 text-xl">🚓</span>

@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const AppContext = createContext();
 
+const BASE_URL = "https://fugitive-finder-nodejs.onrender.com"
+
 export const AppProvider = ({ children }) => {
     const [cities, setCities] = useState([]);
     const [vehicles, setVehicles] = useState([]);
@@ -16,12 +18,13 @@ export const AppProvider = ({ children }) => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const citiesData = await axios.get('http://localhost:5005/cities');
+                const citiesData = await axios.get(`${BASE_URL}/cities`);
                 setCities(citiesData?.data);
-                const vehiclesData = await axios.get('http://localhost:5005/vehicles');
+                const vehiclesData = await axios.get(`${BASE_URL}/vehicles`);
                 setVehicles(vehiclesData?.data);
-                const selectionsData = await axios.get('http://localhost:5005/selections');
+                const selectionsData = await axios.get(`${BASE_URL}/selections`);
                 setSelections(selectionsData?.data)
+                checkResult()
             } catch (error) {
                 toast.error(error?.response?.data?.error);
             }
@@ -32,7 +35,7 @@ export const AppProvider = ({ children }) => {
 
     const handleSelection = async (cop, city, vehicle, img_url) => {
         try {
-            const resp = await axios.post('http://localhost:5005/selections', { cop, city, vehicle, img_url });
+            const resp = await axios.post(`${BASE_URL}/selections`, { cop, city, vehicle, img_url });
             if (resp?.status === 200) {
                 toast.success(`Cop ${cop} is on way to catch the fugitive`);
                 setSelections([...selections, { cop, city, vehicle }]);
@@ -50,8 +53,10 @@ export const AppProvider = ({ children }) => {
             return;
         }
         try {
-            const resp = await axios.get('http://localhost:5005/result');
+            const resp = await axios.get(`${BASE_URL}/result`);
+            const selectionsData = await axios.get(`${BASE_URL}/selections`);
             setResult(resp?.data);
+            setSelections(selectionsData?.data);
             navigate('/result');
         } catch (error) {
             toast.error(error?.response?.data?.error);
@@ -60,8 +65,8 @@ export const AppProvider = ({ children }) => {
 
     const handleReset = async () => {
         try {
-            const resp = await axios.get("http://localhost:5005/reset")
-            const selectionsResp = await axios.get("http://localhost:5005/selections")
+            const resp = await axios.get(`${BASE_URL}/reset`)
+            const selectionsResp = await axios.get(`${BASE_URL}/selections`)
             setSelections(selectionsResp?.data)
             toast.success(resp.data?.message)
             navigate("/")

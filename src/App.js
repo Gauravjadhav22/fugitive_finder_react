@@ -9,9 +9,13 @@ function App() {
 
   return (
     <Routes>
+
+
       <Route index path="/" element={<Landing />} />
-      {result && <Route path="/result" element={<Result />} />}
+      {/* {result && <Route path="/result" element={<Result />} />} */}
+      {<Route path="/result" element={<Result />} />}
       {<Route path="*" element={<NotFound />} />}
+
     </Routes>
   );
 }
